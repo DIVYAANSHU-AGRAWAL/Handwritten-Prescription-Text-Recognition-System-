@@ -88,7 +88,21 @@ python scripts/train_model.py
 Use the provided prediction functions in predict.py to load the trained model and tokenizer and make predictions on new handwritten word images.
 
 # Dataset
-The project uses a dataset CSV file containing word_id and transcription columns along with corresponding images stored in a directory structure. The script verifies and loads the valid images for training.
+### IAM Handwriting Database
+- Widely-used dataset of handwritten English text for training and testing handwriting recognition systems.
+- Contains data from **657 writers**.
+- Includes:
+  - **1,539 pages** of scanned handwritten text.
+  - **5,685 labeled sentences**.
+  - **13,353 labeled text lines**.
+  - **115,320 labeled words**.
+- Images are scanned at **300 dpi**, saved as grayscale PNG files.
+- Comes with XML metadata files containing segmentation and annotation information.
+- Supports research in handwriting recognition, writer identification, and verification.
+
+**Dataset source:** [IAM Handwriting Database on Kaggle](https://www.kaggle.com/datasets/nibinv23/iam-handwriting-word-database)
+
+The project uses a dataset CSV file named cleaned_words_mapped.csv containing word_id and transcription columns along with corresponding images stored in a directory structure. The script verifies and loads the valid images for training.
 
 # Model Architecture
 - Image branch: ResNet50 (pretrained on ImageNet, frozen) followed by Flatten, Dense(128), and Dropout.
