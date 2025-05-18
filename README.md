@@ -16,13 +16,13 @@ The goal is to predict the transcription tokens given an image of a handwritten 
 
 # Setup
 ## Prerequisites
--Python 3.8+
--TensorFlow 2.x
--numpy
--pandas
--scikit-learn
--matplotlib
--pillow
+- Python 3.8+
+- TensorFlow 2.x
+- numpy
+- pandas
+- scikit-learn
+- matplotlib
+- pillow
 
 # Usage
 ## Training the model
@@ -33,11 +33,11 @@ python scripts/train_model.py
 
 ### This will:
 
--Load and preprocess images and text.
--Build the dual-input model.
--Train the model with early stopping.
--Save the model, tokenizer, and training history.
--Plot training curves.
+- Load and preprocess images and text.
+- Build the dual-input model.
+- Train the model with early stopping.
+- Save the model, tokenizer, and training history.
+- Plot training curves.
 
 ## Predicting on new images
 Use the provided prediction functions in predict.py to load the trained model and tokenizer and make predictions on new handwritten word images.
@@ -46,17 +46,17 @@ Use the provided prediction functions in predict.py to load the trained model an
 The project uses a dataset CSV file containing word_id and transcription columns along with corresponding images stored in a directory structure. The script verifies and loads the valid images for training.
 
 # Model Architecture
--Image branch: ResNet50 (pretrained on ImageNet, frozen) followed by Flatten, Dense(128), and Dropout.
--Text branch: Embedding layer → Bidirectional LSTM(64) → Dense(64) → Dropout.
--Combined: Concatenate image and text features → Dense(128) → Dropout → Dense output layer with softmax activation for token classification.
+- Image branch: ResNet50 (pretrained on ImageNet, frozen) followed by Flatten, Dense(128), and Dropout.
+- Text branch: Embedding layer → Bidirectional LSTM(64) → Dense(64) → Dropout.
+- Combined: Concatenate image and text features → Dense(128) → Dropout → Dense output layer with softmax activation for token classification.
 
 # Results
 The model trains up to 50 epochs with early stopping based on validation loss. Training and validation accuracy and loss plots are generated to visualize the performance.
 
 # Future Improvements
--Implement sequence-to-sequence models for full transcription prediction.
--Fine-tune the ResNet50 base model for improved image features.
--Add data augmentation for handwritten images.
--Experiment with different architectures like CNN + Transformer.
--Extend to multi-word or sentence recognition.
+- Implement sequence-to-sequence models for full transcription prediction.
+- Fine-tune the ResNet50 base model for improved image features.
+- Add data augmentation for handwritten images.
+- Experiment with different architectures like CNN + Transformer.
+- Extend to multi-word or sentence recognition.
 
